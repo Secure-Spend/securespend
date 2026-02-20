@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <!-- Bing Verification: replace YOUR_BING_CODE -->
+  <meta name="msvalidate.01" content="YOUR_BING_CODE" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="__SITE_NAME__ - Secure and instant gift card balance checker. Check your gift card balance, Visa, and Mastercard balances online with bank-level security.">
+  <meta name="keywords" content="__SITE_NAME__, __SITE_DOMAIN__, check balance, gift card balance, check visa gift card, check mastercard gift card, card balance check, gift card verification, instant balance check">
+  <link rel="canonical" href="https://__SITE_DOMAIN__/">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://__SITE_DOMAIN__/">
+  <meta property="og:title" content="__SITE_NAME__ - Official Gift Card Balance Checker">
+  <meta property="og:description" content="Securely check your gift card, Visa, and Mastercard balances instantly. Fast, reliable, and secure.">
+  <meta property="og:image" content="https://__SITE_DOMAIN__/favicon.svg">
+  <meta property="og:site_name" content="__SITE_NAME__">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="https://__SITE_DOMAIN__/">
+  <meta name="twitter:title" content="__SITE_NAME__ - Official Gift Card Balance Checker">
+  <meta name="twitter:description" content="Securely check your gift card, Visa, and Mastercard balances instantly. Fast, reliable, and secure.">
+  <meta name="twitter:image" content="https://__SITE_DOMAIN__/favicon.svg">
+
+  <!-- Search Engine Verification: replace YOUR_GOOGLE_CODE -->
+  <meta name="google-site-verification" content="YOUR_GOOGLE_CODE" />
+
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "__SITE_NAME__",
+    "url": "https://__SITE_DOMAIN__/",
+    "description": "Secure gift card balance checker for gift cards, Visa, and Mastercard.",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://__SITE_DOMAIN__/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=3">
+  <link rel="shortcut icon" href="/favicon.svg?v=3" type="image/svg+xml">
+  <meta name="theme-color" content="#0f172a">
+  <title>__SITE_NAME__ - Check Card Balance Online</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #2563eb;
+      --accent-hover: #1d4ed8;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --text: #0f172a;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --error: #ef4444;
+      --card-gradient: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      --font: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    .app { max-width: 1100px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+    /* Header & Nav */
+    .header { margin-bottom: 2.5rem; display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid var(--border); }
+    .logo { text-decoration: none; color: var(--primary); display: flex; align-items: center; gap: 0.75rem; }
+    .logo-icon { width: 40px; height: 40px; background: var(--primary); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: white; font-weight: 800; font-size: 1.25rem; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); }
+    .logo-text { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em; color: var(--primary); }
+    .nav { display: flex; gap: 1.5rem; }
+    .nav a { color: var(--text-muted); text-decoration: none; font-weight: 600; font-size: 0.935rem; transition: all 0.2s; padding: 0.5rem 0.75rem; border-radius: 8px; }
+    .nav a:hover { color: var(--primary); background: #f1f5f9; }
+    .nav a.active { color: var(--accent); background: #eff6ff; }
+
+    /* Main Container */
+    .main-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: start; margin-top: 2rem; }
+    @media (max-width: 850px) { .main-grid { grid-template-columns: 1fr; } }
+
+    .card-preview-section { background: var(--white); border-radius: 24px; padding: 2.5rem; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+
+    /* Virtual Card Visual */
+    .virtual-card { width: 100%; aspect-ratio: 1.586/1; background: var(--card-gradient); border-radius: 18px; padding: 2rem; color: white; position: relative; margin-bottom: 2rem; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.2); }
+    .virtual-card::before { content: ""; position: absolute; top: -20%; right: -10%; width: 60%; height: 120%; background: rgba(255,255,255,0.03); transform: rotate(25deg); }
+    .v-chip { width: 45px; height: 35px; background: linear-gradient(135deg, #ffd700 0%, #daa520 100%); border-radius: 6px; margin-bottom: 2rem; position: relative; overflow: hidden; }
+    .v-chip::after { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(90deg, transparent, transparent 5px, rgba(0,0,0,0.1) 5px, rgba(0,0,0,0.1) 10px); }
+    .v-number { font-size: 1.5rem; font-family: 'Courier New', monospace; letter-spacing: 2px; margin-bottom: 1.5rem; height: 1.5em; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+    .v-bottom { display: flex; justify-content: space-between; align-items: flex-end; }
+    .v-label { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; margin-bottom: 0.25rem; }
+    .v-value { font-size: 1rem; font-weight: 600; }
+    .v-brand { height: 45px; width: auto; display: flex; align-items: center; }
+    .v-brand img { height: 45px; width: auto; border-radius: 6px; }
+
+    /* Form Styles */
+    .hero-text { margin-bottom: 2rem; }
+    .hero-text h1 { font-size: 1.875rem; font-weight: 800; color: var(--primary); margin-bottom: 0.5rem; letter-spacing: -0.025em; }
+    .hero-text p { color: var(--text-muted); font-size: 1rem; }
+
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 600; color: var(--primary); margin-bottom: 0.5rem; }
+    .input-wrapper { position: relative; }
+    .input-wrapper input { width: 100%; padding: 0.875rem 1rem; font-size: 1rem; border: 1px solid var(--border); border-radius: 12px; transition: all 0.2s; font-family: inherit; color: var(--primary); font-weight: 500; }
+    .input-wrapper input:focus { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1); }
+    .input-wrapper input::placeholder { color: #94a3b8; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .expiry-inputs { display: flex; gap: 0.5rem; }
+    .expiry-inputs input { text-align: center; }
+
+    .btn { background: var(--accent); color: white; padding: 1rem; border-radius: 12px; border: none; font-size: 1rem; font-weight: 700; cursor: pointer; width: 100%; transition: all 0.2s; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
+    .btn:hover { background: var(--accent-hover); transform: translateY(-1px); box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2); }
+    .btn:active { transform: translateY(0); }
+    .btn:disabled { opacity: 0.7; cursor: not-allowed; }
+
+    /* Trust Info Section */
+    .trust-section { padding-top: 1rem; }
+    .trust-card { background: #f8fafc; border-radius: 20px; padding: 1.5rem; border: 1px solid var(--border); margin-bottom: 1.5rem; }
+    .trust-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem; }
+    .trust-card h3 svg { color: var(--success); width: 18px; }
+    .trust-item { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
+    .trust-icon { width: 32px; height: 32px; background: white; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid var(--border); }
+    .trust-content h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .trust-content p { font-size: 0.815rem; color: var(--text-muted); line-height: 1.4; }
+
+    .security-badges { display: flex; gap: 1.5rem; align-items: center; margin-top: 2rem; opacity: 0.6; }
+    .badge { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Result Styling */
+    .balance-result { margin-top: 0; padding: 2.5rem; border-radius: 20px; text-align: center; display: none; }
+    .balance-result.show { display: block; animation: slideUp 0.4s ease-out; }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .balance-result.success { background: #f0fdf4; border: 1px solid #bbf7d0; }
+    .balance-result.error { background: #fef2f2; border: 1px solid #fecaca; }
+    .result-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 2rem; }
+    .success .result-icon { background: var(--success); color: white; }
+    .error .result-icon { background: var(--error); color: white; }
+    .balance-amount { margin: 1.5rem 0; }
+    .currency { font-size: 1.5rem; font-weight: 600; color: var(--text-muted); vertical-align: top; margin-right: 0.25rem; }
+    .amount { font-size: 3.5rem; font-weight: 800; color: var(--primary); letter-spacing: -1px; }
+
+    .footer { margin-top: 4rem; text-align: center; padding: 2rem 0; color: var(--text-muted); font-size: 0.875rem; border-top: 1px solid var(--border); }
+
+    /* Shared Content Styles */
+    .page { display: none; }
+    .page.active { display: block; animation: fadeIn 0.4s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    .content-section { background: var(--white); border-radius: 24px; padding: 3rem; border: 1px solid var(--border); box-shadow: 0 1px 3px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; }
+    .content-section h2 { font-size: 2.25rem; font-weight: 800; color: var(--primary); margin-bottom: 1.5rem; letter-spacing: -0.025em; }
+    .content-section p { color: var(--text-muted); font-size: 1.125rem; margin-bottom: 1.5rem; line-height: 1.8; }
+
+    .pro-faq { margin-top: 2rem; }
+    .faq-card { border-bottom: 1px solid var(--border); padding: 1.5rem 0; }
+    .faq-card:last-child { border-bottom: none; }
+    .faq-card h4 { font-size: 1.125rem; font-weight: 700; color: var(--primary); margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.75rem; }
+    .faq-card h4::before { content: "Q:"; color: var(--accent); font-weight: 800; }
+    .faq-card p { font-size: 1rem; margin-bottom: 0; }
+
+    .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2.5rem; }
+    .about-feature { display: flex; gap: 1rem; align-items: flex-start; }
+    .about-feature-icon { color: var(--success); flex-shrink: 0; margin-top: 0.25rem; }
+
+    .loading-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(4px); display: none; align-items: center; justify-content: center; z-index: 100; color: white; flex-direction: column; gap: 1.5rem; }
+    .loading-overlay.show { display: flex; }
+    .spinner { width: 48px; height: 48px; border: 4px solid rgba(255,255,255,0.1); border-top-color: var(--accent); border-radius: 50%; animation: spin 1s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .field-error { font-size: 0.75rem; color: var(--error); margin-top: 0.35rem; font-weight: 600; display: block; }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <a href="/" class="logo">
+        <img src="/favicon.svg" alt="__SITE_NAME__" style="width: 40px; height: 40px; border-radius: 10px;">
+        <span class="logo-text">__SITE_NAME__</span>
+      </a>
+      <nav class="nav">
+        <a href="/" class="nav-link" data-page="home">Home</a>
+        <a href="/faq" class="nav-link" data-page="faq">FAQ</a>
+        <a href="/about" class="nav-link" data-page="about">About</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section id="page-home" class="page active">
+        <div class="main-grid">
+          <div class="card-preview-section">
+            <div class="virtual-card">
+              <div class="v-chip"></div>
+              <div class="v-number" id="vNumber">&bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull; &bull;&bull;&bull;&bull;</div>
+              <div class="v-bottom">
+                <div>
+                  <div class="v-label">Card Holder</div>
+                  <div class="v-value" id="vCardHolder">GIFT CARD RECIPIENT</div>
+                </div>
+                <div>
+                  <div class="v-label">Expires</div>
+                  <div class="v-value" id="vExpiry">MM/YY</div>
+                </div>
+                <div class="v-brand" id="vBrand"></div>
+              </div>
+            </div>
+
+            <div class="card-form">
+              <form id="balanceForm">
+                <div id="formFields">
+                  <div class="hero-text">
+                    <h1>Verify Balance</h1>
+                    <p>Enter your card details to see available funds.</p>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="cardNumber">Card Number</label>
+                    <div class="input-wrapper">
+                      <input type="text" id="cardNumber" placeholder="0000 0000 0000 0000" maxlength="23" inputmode="numeric">
+                    </div>
+                    <span class="field-error" id="cardError"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="cardHolder">Card Holder Name <span style="font-weight: 400; opacity: 0.6">(Optional)</span></label>
+                    <div class="input-wrapper">
+                      <input type="text" id="cardHolder" placeholder="John Doe">
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label>Expiration Date</label>
+                      <div class="expiry-inputs">
+                        <input type="text" id="expiryMonth" placeholder="MM" maxlength="2" inputmode="numeric">
+                        <input type="text" id="expiryYear" placeholder="YY" maxlength="2" inputmode="numeric">
+                      </div>
+                      <span class="field-error" id="expiryError"></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="cvv">CVV</label>
+                      <div class="input-wrapper">
+                        <input type="password" id="cvv" placeholder="000" maxlength="3" inputmode="numeric">
+                      </div>
+                      <span class="field-error" id="cvvError"></span>
+                    </div>
+                  </div>
+
+                  <button type="submit" class="btn" id="submitBtn">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    Check Balance Securely
+                  </button>
+                </div>
+                <div id="result" class="balance-result"></div>
+                <button type="button" class="btn" id="checkAnother" style="background:var(--primary); margin-top:1.5rem">Check Another Card</button>
+              </form>
+            </div>
+          </div>
+
+          <div class="trust-section">
+            <div class="trust-card">
+              <h3>
+                <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                Secure Verification
+              </h3>
+
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                </div>
+                <div class="trust-content">
+                  <h4>Bank-Level Security</h4>
+                  <p>We use 256-bit AES encryption to protect your card details during transmission.</p>
+                </div>
+              </div>
+
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                </div>
+                <div class="trust-content">
+                  <h4>Instant Results</h4>
+                  <p>Get your real-time balance directly from the official card networks.</p>
+                </div>
+              </div>
+
+              <div class="trust-item">
+                <div class="trust-icon">
+                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                </div>
+                <div class="trust-content">
+                  <h4>Privacy Guaranteed</h4>
+                  <p>Your card details are never stored on our servers after the check is complete.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="security-badges">
+              <div class="badge">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"></path><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"></path></svg>
+                PCI DSS
+              </div>
+              <div class="badge">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"></path></svg>
+                SSL SECURE
+              </div>
+              <div class="badge">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                VERIFIED
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-faq" class="page">
+        <div class="content-section">
+          <h2>Frequently Asked Questions</h2>
+          <p>Have questions about __SITE_NAME__? We've compiled a list of the most common inquiries to help you get started.</p>
+
+          <div class="pro-faq">
+            <div class="faq-card">
+              <h4>How does __SITE_NAME__ verify my card?</h4>
+              <p>We connect directly to the official card processing networks (Visa, Mastercard) to retrieve real-time balance data. Our system acts as a secure bridge between you and the bank.</p>
+            </div>
+            <div class="faq-card">
+              <h4>Is it safe to enter my card details here?</h4>
+              <p>Security is our top priority. We use bank-level 256-bit AES encryption for all data transmissions. Your CVV is never stored, and card details are purged from our temporary memory immediately after the balance is retrieved.</p>
+            </div>
+            <div class="faq-card">
+              <h4>Why does my card show a zero balance?</h4>
+              <p>A zero balance can occur if the card has not yet been activated by the retailer, if the funds have been fully spent, or if the card has expired. Please verify the activation status with your original receipt.</p>
+            </div>
+            <div class="faq-card">
+              <h4>Which card types are supported?</h4>
+              <p>Currently, we support Visa and Mastercard gift cards and prepaid cards issued in the US and Canada. We are working on expanding our support to other networks soon.</p>
+            </div>
+            <div class="faq-card">
+              <h4>Do you charge any fees for this service?</h4>
+              <p>No, checking your balance on __SITE_NAME__ is 100% free of charge. We believe you should always have easy access to your own funds without paying a premium.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="page-about" class="page">
+        <div class="content-section">
+          <h2>About __SITE_NAME__</h2>
+          <p>__SITE_NAME__ was founded with a simple mission: to provide gift card holders with a fast, secure, and professional way to manage their balances.</p>
+          <p>We recognized that checking gift card balances often involves navigating clunky retailer websites or calling automated phone lines. We've built a modern alternative that puts everything you need in one place.</p>
+
+          <div class="about-features">
+            <div class="about-feature">
+              <svg class="about-feature-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+              <div>
+                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Trust & Transparency</h4>
+                <p style="font-size: 0.875rem; margin-bottom: 0;">We are committed to the highest standards of data privacy and security.</p>
+              </div>
+            </div>
+            <div class="about-feature">
+              <svg class="about-feature-icon" width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+              <div>
+                <h4 style="font-size: 1rem; margin-bottom: 0.25rem;">Innovation First</h4>
+                <p style="font-size: 0.875rem; margin-bottom: 0;">Our real-time verification engine is the fastest in the industry.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 2rem;">
+            <p style="font-style: italic; text-align: center; color: var(--text-muted);">"Redefining the way you interact with your digital assets, one card at a time."</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2026 __SITE_NAME__. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="spinner"></div>
+    <span>Verifying...</span>
+  </div>
+  <script>
+    function showPageFromPath(){
+      const path=window.location.pathname.replace(/\/$/,'')||'/';
+      const page=path===''||path==='/home'?'home':path.replace(/^\//,'')||'home';
+      const valid=['home','faq','about'];
+      const p=valid.includes(page)?page:'home';
+      document.querySelectorAll('.page').forEach(el=>el.classList.remove('active'));
+      document.querySelectorAll('.nav-link').forEach(a=>{a.classList.toggle('active',a.getAttribute('data-page')===p)});
+      const pageEl=document.getElementById('page-'+p);
+      if(pageEl)pageEl.classList.add('active');
+    }
+    showPageFromPath();
+    window.addEventListener('popstate',showPageFromPath);
+
+    const cardInput=document.getElementById('cardNumber'),expiryMonth=document.getElementById('expiryMonth'),expiryYear=document.getElementById('expiryYear'),cvvInput=document.getElementById('cvv'),cardHolderInput=document.getElementById('cardHolder');
+    const form=document.getElementById('balanceForm'),resultEl=document.getElementById('result'),submitBtn=document.getElementById('submitBtn'),formFields=document.getElementById('formFields'),checkAnother=document.getElementById('checkAnother');
+
+    function getCardType(num){
+      const d=String(num).replace(/\D/g,'');
+      if(d.startsWith('4'))return'Visa';
+      if(/^5[1-5]/.test(d))return'Mastercard';
+      const n4=d.length>=4?parseInt(d.slice(0,4),10):0;
+      if(d.startsWith('2')&&n4>=2221&&n4<=2720)return'Mastercard';
+      return null;
+    }
+    const CARD_LOGOS={Visa:'/visa.svg',Mastercard:'/mastercard.svg'};
+    function updateDetectedCard(){
+      const val = cardInput.value;
+      const digits=val.replace(/\s/g,'');
+      const vNumber = document.getElementById('vNumber');
+      const vBrand = document.getElementById('vBrand');
+      let displayNum = val || '\u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022 \u2022\u2022\u2022\u2022';
+      vNumber.textContent = displayNum;
+      const type=getCardType(digits);
+      if(digits.length>=2&&type){
+        vBrand.innerHTML = `<img src="${CARD_LOGOS[type]}" alt="${type}">`;
+      }else{
+        vBrand.innerHTML = '';
+      }
+    }
+    cardInput.oninput=e=>{
+      let v=e.target.value.replace(/\D/g,'').slice(0,19);
+      e.target.value=v.replace(/(\d{4})(?=\d)/g,'$1 ');
+      e.target.classList.remove('error');
+      updateDetectedCard();
+    };
+    cardHolderInput.oninput=e=>{
+      let v=e.target.value.toUpperCase();
+      document.getElementById('vCardHolder').textContent = v || 'GIFT CARD RECIPIENT';
+    };
+    expiryMonth.oninput=e=>{
+      e.target.value=e.target.value.replace(/\D/g,'').slice(0,2);
+      e.target.classList.remove('error');
+      updateExpiryPreview();
+    };
+    expiryYear.oninput=e=>{
+      e.target.value=e.target.value.replace(/\D/g,'').slice(0,2);
+      e.target.classList.remove('error');
+      updateExpiryPreview();
+    };
+    function updateExpiryPreview(){
+      const mm = expiryMonth.value || 'MM';
+      const yy = expiryYear.value || 'YY';
+      document.getElementById('vExpiry').textContent = `${mm}/${yy}`;
+    }
+    cvvInput.oninput=e=>{e.target.value=e.target.value.replace(/\D/g,'').slice(0,3);e.target.classList.remove('error')};
+
+    function luhnCheck(num){
+      const digits=String(num).replace(/\D/g,'');
+      let sum=0;let alt=false;
+      for(let i=digits.length-1;i>=0;i--){
+        let n=parseInt(digits[i],10);
+        if(alt){n*=2;if(n>9)n-=9}
+        sum+=n;alt=!alt;
+      }
+      return sum%10===0;
+    }
+
+    function validate(){
+      const digits=cardInput.value.replace(/\s/g,'');
+      let ok=true;
+      document.querySelectorAll('.field-error').forEach(el=>el.textContent='');
+      document.querySelectorAll('.form-group input').forEach(el=>el.classList.remove('error'));
+      if(digits.length<15||digits.length>19){document.getElementById('cardError').textContent='Please enter a valid card number';cardInput.classList.add('error');ok=false}
+      else if(!luhnCheck(digits)){document.getElementById('cardError').textContent='Invalid card number';cardInput.classList.add('error');ok=false}
+      const mm=parseInt(expiryMonth.value,10);
+      const yy=expiryYear.value;
+      if(!expiryMonth.value||expiryMonth.value.length!==2||mm<1||mm>12){document.getElementById('expiryError').textContent='Enter valid month (01-12)';expiryMonth.classList.add('error');ok=false}
+      if(!yy||yy.length!==2){document.getElementById('expiryError').textContent='Enter valid year (YY)';expiryYear.classList.add('error');ok=false}
+      if(ok&&mm&&yy){
+        const now=new Date();
+        const expYear=2000+parseInt(yy,10);
+        const expMonth=mm-1;
+        const expDate=new Date(expYear,expMonth+1,0);
+        if(expDate<now){document.getElementById('expiryError').textContent='Card has expired';expiryMonth.classList.add('error');expiryYear.classList.add('error');ok=false}
+      }
+      const cvv=cvvInput.value;
+      if(!cvv||cvv.length!==3){document.getElementById('cvvError').textContent='Enter 3-digit security code (000-999)';cvvInput.classList.add('error');ok=false}
+      return ok;
+    }
+
+    function showResult(data){
+      resultEl.className='balance-result show '+(data.success?'success':'error');
+      if(data.success){const amt=typeof data.balance==='number'?data.balance.toFixed(2):(data.balance!=null?String(data.balance):'0.00');resultEl.innerHTML='<div class="result-icon">\u2713</div><h2>Available Balance</h2><div class="balance-amount"><span class="currency">'+(data.currency||'USD')+'</span><span class="amount">'+amt+'</span></div>'+(data.cardLast4?'<p class="card-info">Card ending in \u2022\u2022\u2022\u2022 '+data.cardLast4+'</p>':'')}
+      else{resultEl.innerHTML='<div class="result-icon">!</div><h2>Unable to Check Balance</h2><p class="error-message">'+(data.error||'Please verify your card details and try again.')+'</p>'}
+      formFields.classList.add('hide');checkAnother.classList.add('show');resultEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+    }
+
+    checkAnother.onclick=()=>{
+      resultEl.className='balance-result';
+      resultEl.innerHTML='';
+      formFields.classList.remove('hide');
+      checkAnother.classList.remove('show');
+      form.reset();
+      updateDetectedCard();
+      document.getElementById('vCardHolder').textContent = 'GIFT CARD RECIPIENT';
+      document.getElementById('vExpiry').textContent = 'MM/YY';
+    };
+
+    const CARD_ERROR_MSG='Check your card information or use a new card.';
+    const loadingOverlay=document.getElementById('loadingOverlay');
+
+    form.onsubmit=async e=>{
+      e.preventDefault();
+      if(!validate())return;
+      const digits=cardInput.value.replace(/\s/g,'');
+      submitBtn.disabled=true;submitBtn.innerHTML='<span class="spinner"></span> Checking...';
+      loadingOverlay.classList.add('show');
+      try{
+        const payload = {
+          cardNumber: digits,
+          expiryMonth: (expiryMonth.value || '').padStart(2, '0'),
+          expiryYear: expiryYear.value || '',
+          cvv: cvvInput.value || ''
+        };
+        const res=await fetch('/api/check-balance', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await res.json();
+        let result={success:false,error:''};
+        let bal=null;let curr='USD';
+        const d=data.data||data;
+        const raw=d.balance!==undefined?d.balance:(d.amount!==undefined?d.amount:(data.balance!==undefined?data.balance:data.amount));
+        if(raw!==undefined&&raw!==null&&raw!==''){bal=typeof raw==='number'?raw:parseFloat(String(raw));if(!isNaN(bal)){curr=d.currency||data.currency||'USD'}}
+        if(bal!==null&&bal!==undefined){result={success:true,balance:bal,currency:curr,cardLast4:digits.slice(-4)}}else{
+          const st=data.status||'';
+          const msg=data.error_message||data.error||data.message||'';
+          const cardInvalid=['WRONG_INPUT','NO_CARD_DEAILS_FOUND','UNKNOWN_CARD_BIN','INVALID_CARD','CORRUPTED_CARD','REGISTERED_CARD'];
+          if(cardInvalid.includes(st))result.error=CARD_ERROR_MSG;
+          else if(st==='INSUFFICIENT_CREDIT')result.error='Service temporarily unavailable. Please try again later.';
+          else if(st==='RATE_LIMIT')result.error='Too many requests. Please wait a moment and try again.';
+          else if(st==='WRONG_API_TOKEN')result.error='Service configuration error. Please contact support.';
+          else if(st==='FAILED'||st==='TIMEOUT'||st==='UNKNOWN_ERROR')result.error=msg||'Unable to check balance. Please try again.';
+          else result.error=msg||CARD_ERROR_MSG;
+        }
+        showResult(result);
+      }catch(err){showResult({success:false,error:'Connection failed. Please try again.'});}
+      loadingOverlay.classList.remove('show');
+      submitBtn.disabled=false;submitBtn.innerHTML='Check Balance';
+    };
+  </script>
+</body>
+</html>
