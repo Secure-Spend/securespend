@@ -1,5 +1,14 @@
 User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /api/check-balance
+
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
 
 Sitemap: https://secured-spend.com/sitemap.xml
