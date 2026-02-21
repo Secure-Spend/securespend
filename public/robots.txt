@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
-Sitemap: https://__SITE_DOMAIN__/sitemap.xml
+Sitemap: https://secured-spend.com/sitemap.xml
