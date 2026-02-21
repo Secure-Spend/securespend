@@ -1,13 +1,6 @@
 {
   "version": 2,
-  "redirects": [
-    {
-      "source": "/:path(.*)",
-      "has": [{ "type": "host", "value": "www.secured-spend.com" }],
-      "destination": "https://secured-spend.com/:path",
-      "permanent": true
-    }
-  ],
+  "redirects": [],
   "headers": [
     {
       "source": "/sitemap.xml",
