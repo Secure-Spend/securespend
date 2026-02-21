@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0c5099"/>
+      <stop offset="50%" style="stop-color:#091a44"/>
+      <stop offset="100%" style="stop-color:#0a1230"/>
+    </linearGradient>
+    <linearGradient id="logoBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3080d7"/>
+      <stop offset="100%" style="stop-color:#0c5099"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="0" y="620" width="1200" height="10" fill="#3080d7"/>
+  <circle cx="1050" cy="150" r="300" fill="rgba(48,128,215,0.08)"/>
+  <circle cx="200" cy="500" r="250" fill="rgba(92,184,92,0.05)"/>
+  <rect x="100" y="200" width="80" height="80" rx="16" fill="url(#logoBg)"/>
+  <text x="140" y="250" text-anchor="middle" dominant-baseline="central" font-family="Arial,sans-serif" font-weight="900" font-size="40" fill="#ffffff" letter-spacing="-2">SS</text>
+  <text x="200" y="232" font-family="Arial,sans-serif" font-weight="700" font-size="52" fill="#ffffff" letter-spacing="-1">Secure</text>
+  <text x="465" y="232" font-family="Arial,sans-serif" font-weight="700" font-size="52" fill="#3080d7" letter-spacing="-1">Spend</text>
+  <text x="100" y="340" font-family="Arial,sans-serif" font-weight="300" font-size="32" fill="rgba(255,255,255,0.85)">Check Your Prepaid Card Balance</text>
+  <text x="100" y="390" font-family="Arial,sans-serif" font-weight="300" font-size="24" fill="rgba(255,255,255,0.5)">Visa® &amp; Mastercard® Gift Cards | Free &amp; Secure</text>
+  <rect x="100" y="440" width="200" height="44" rx="4" fill="#3080d7"/>
+  <text x="200" y="468" text-anchor="middle" font-family="Arial,sans-serif" font-weight="500" font-size="16" fill="#ffffff" letter-spacing="1">CHECK BALANCE</text>
+  <text x="100" y="560" font-family="Arial,sans-serif" font-weight="400" font-size="18" fill="rgba(255,255,255,0.35)">secured-spend.com</text>
+</svg>

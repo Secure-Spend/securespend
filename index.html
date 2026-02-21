@@ -3,22 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="SecureSpend - Check your Secure Spend Visa & Mastercard prepaid gift card balance online. Activate your SecureSpend card, view transactions, and manage your secured spend prepaid card instantly.">
-  <meta name="keywords" content="secure spend, secured spend, securespend, securespend balance, secure spend balance check, securespend.com, secure spend card, securespend visa, securespend mastercard, secure spend gift card, securespend prepaid, check securespend balance, secure spend card balance, securespend activate, secured spend card, secure spend visa gift card, securespend check balance, secure spend prepaid card, securespend gift card balance, secure spend balance, securespend card activation">
-  <meta name="robots" content="index, follow">
+  <meta name="description" id="metaDescription" content="SecureSpend - Check your Secure Spend Visa & Mastercard prepaid gift card balance online. Activate your SecureSpend card, view transactions, and manage your secured spend prepaid card instantly.">
+  <meta name="keywords" content="secure spend, secured spend, securespend, securespend balance, secure spend balance check, securespend.com, secure spend card, securespend visa, securespend mastercard, secure spend gift card, securespend prepaid, check securespend balance, secure spend card balance, securespend activate, secured spend card, secure spend visa gift card, securespend check balance, secure spend prepaid card, securespend gift card balance, secure spend balance, securespend card activation, secure spend card check, prepaid visa balance, prepaid mastercard balance, gift card balance check">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="author" content="SecureSpend">
-  <meta property="og:title" content="SecureSpend - Check Your Prepaid Card Balance Online">
-  <meta property="og:description" content="Check your Secure Spend Visa & Mastercard prepaid gift card balance. Activate your SecureSpend card and view transactions instantly.">
+  <meta name="google-site-verification" content="YOUR_GOOGLE_VERIFICATION_CODE">
+  <meta property="og:title" id="ogTitle" content="SecureSpend™ | Check Secure Spend Balance Online - Visa® & Mastercard® Prepaid Cards">
+  <meta property="og:description" id="ogDescription" content="Check your Secure Spend Visa & Mastercard prepaid gift card balance. Activate your SecureSpend card and view transactions instantly.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://secured-spend.com/">
+  <meta property="og:url" id="ogUrl" content="https://secured-spend.com/">
   <meta property="og:site_name" content="SecureSpend">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SecureSpend - Check Your Prepaid Card Balance">
-  <meta name="twitter:description" content="Check your Secure Spend Visa & Mastercard prepaid gift card balance online. Free, fast, and secure.">
-  <link rel="canonical" href="https://secured-spend.com/">
+  <meta property="og:image" content="https://secured-spend.com/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SecureSpend - Check Your Prepaid Card Balance">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" id="twitterTitle" content="SecureSpend™ | Check Secure Spend Balance Online">
+  <meta name="twitter:description" id="twitterDescription" content="Check your Secure Spend Visa & Mastercard prepaid gift card balance online. Free, fast, and secure.">
+  <meta name="twitter:image" content="https://secured-spend.com/og-image.svg">
+  <link rel="canonical" id="canonicalLink" href="https://secured-spend.com/">
   <title>SecureSpend™ | Check Secure Spend Balance Online - Visa® & Mastercard® Prepaid Cards</title>
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="48x48">
   <link rel="apple-touch-icon" href="/favicon.svg">
   <meta name="theme-color" content="#0c5099">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -47,11 +53,15 @@
     "@type": "WebSite",
     "name": "SecureSpend",
     "url": "https://secured-spend.com",
-    "description": "Check your Secure Spend prepaid Visa and Mastercard gift card balance online.",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://secured-spend.com/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
+    "description": "Check your Secure Spend prepaid Visa and Mastercard gift card balance online. Free, instant, and secure balance checker for SecureSpend cards.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SecureSpend",
+      "url": "https://secured-spend.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://secured-spend.com/favicon.svg"
+      }
     }
   }
   </script>
@@ -111,7 +121,7 @@
     ]
   }
   </script>
-  <script type="application/ld+json">
+  <script type="application/ld+json" id="breadcrumbSchema">
   {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -121,24 +131,6 @@
         "position": 1,
         "name": "Home",
         "item": "https://secured-spend.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Check Balance",
-        "item": "https://secured-spend.com/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "FAQ",
-        "item": "https://secured-spend.com/faq"
-      },
-      {
-        "@type": "ListItem",
-        "position": 4,
-        "name": "About",
-        "item": "https://secured-spend.com/about"
       }
     ]
   }
@@ -1080,6 +1072,51 @@
       document.getElementById('mainNav').classList.toggle('open');
     });
 
+    // SEO data per page
+    const PAGE_SEO = {
+      home: {
+        title: 'SecureSpend\u2122 | Check Secure Spend Balance Online - Visa\u00ae & Mastercard\u00ae Prepaid Cards',
+        description: 'SecureSpend - Check your Secure Spend Visa & Mastercard prepaid gift card balance online. Activate your SecureSpend card, view transactions, and manage your secured spend prepaid card instantly.',
+        canonical: 'https://secured-spend.com/',
+        breadcrumbs: [{ name: 'Home', item: 'https://secured-spend.com/' }]
+      },
+      faq: {
+        title: 'FAQ - SecureSpend\u2122 | Frequently Asked Questions About Prepaid Cards',
+        description: 'Find answers to frequently asked questions about SecureSpend prepaid Visa and Mastercard gift cards. Learn about balance checking, PIN location, card activation, and more.',
+        canonical: 'https://secured-spend.com/faq',
+        breadcrumbs: [{ name: 'Home', item: 'https://secured-spend.com/' }, { name: 'FAQ', item: 'https://secured-spend.com/faq' }]
+      },
+      about: {
+        title: 'About - SecureSpend\u2122 | Trusted Prepaid Card Balance Checker',
+        description: 'Learn about SecureSpend - your trusted source for checking Visa and Mastercard prepaid gift card balances online. Bank-level encryption, free balance checks, instant results.',
+        canonical: 'https://secured-spend.com/about',
+        breadcrumbs: [{ name: 'Home', item: 'https://secured-spend.com/' }, { name: 'About', item: 'https://secured-spend.com/about' }]
+      }
+    };
+
+    function updatePageSEO(page) {
+      const seo = PAGE_SEO[page] || PAGE_SEO.home;
+      document.title = seo.title;
+      document.getElementById('metaDescription').setAttribute('content', seo.description);
+      document.getElementById('canonicalLink').setAttribute('href', seo.canonical);
+      document.getElementById('ogTitle').setAttribute('content', seo.title);
+      document.getElementById('ogDescription').setAttribute('content', seo.description);
+      document.getElementById('ogUrl').setAttribute('content', seo.canonical);
+      document.getElementById('twitterTitle').setAttribute('content', seo.title);
+      document.getElementById('twitterDescription').setAttribute('content', seo.description);
+      const breadcrumbSchema = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        'itemListElement': seo.breadcrumbs.map((b, i) => ({
+          '@type': 'ListItem',
+          'position': i + 1,
+          'name': b.name,
+          'item': b.item
+        }))
+      };
+      document.getElementById('breadcrumbSchema').textContent = JSON.stringify(breadcrumbSchema);
+    }
+
     // Navigation
     function showPageFromPath() {
       const path = window.location.pathname.replace(/\/$/, '') || '/';
@@ -1092,6 +1129,7 @@
       });
       const pageEl = document.getElementById('page-' + p);
       if (pageEl) pageEl.classList.add('active');
+      updatePageSEO(p);
     }
     showPageFromPath();
     window.addEventListener('popstate', showPageFromPath);
